@@ -1,0 +1,20 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Inter", sans-serif;
+  color: #0d6efd;
+}
+
+body{
+  background-color: #fff;
+  padding: 2rem;
+}
+
+p{
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+}
