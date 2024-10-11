@@ -6,6 +6,7 @@ import React from 'react'
 
 //Pages
 import Home from './routes/Home.tsx'
+import ForgotPassWord from './routes/ForgotPassword.tsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/",
+        element: <ForgotPassWord />,
       }
      ]
   }
