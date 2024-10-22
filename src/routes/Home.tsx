@@ -1,6 +1,7 @@
 import React from "react";
-import NewPassword from "../components/NewPassword";
+import NewPassword from "../components/NewPasswordComponent";
 import ForgotPassword from "../routes/ForgotPassword";
+
 
 const Home = () =>{
     return (
