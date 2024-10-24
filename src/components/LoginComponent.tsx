@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 import SwaggerClient from 'swagger-client';
+import css from './Login.module.css';
 
 // Form to send to API
 interface LoginForm {
@@ -52,10 +53,10 @@ const LoginComponent: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={css.login}>
       <h2>Login</h2>
 
-      <div>
+      <div className={css.login_container}>
         <label>Email:</label>
         <input
           type="email"
@@ -67,7 +68,7 @@ const LoginComponent: React.FC = () => {
         />
       </div>
 
-      <div>
+      <div className={css.login_container}>
         <label>Password:</label>
         <input
           type="password"
@@ -79,7 +80,7 @@ const LoginComponent: React.FC = () => {
         />
       </div>
 
-      <div>
+      <div className={css.login_container}>
         <button onClick={handleLogin} disabled={loading}>
           {loading ? 'Logging in...' : 'Entrar'}
         </button>

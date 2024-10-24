@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import './App.css'
+
+import css from './App.module.css';
 
 function App() {
   
 
   return (
-    <div className='App'>
+    <div className={css.app}>
       <h1>UniXs</h1>
       <Outlet /> 
     </div>
