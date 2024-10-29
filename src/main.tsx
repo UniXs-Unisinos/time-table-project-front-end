@@ -6,6 +6,8 @@ import React from 'react'
 
 //Pages
 import Home from './routes/Home.tsx'
+import Login from './routes/Login.tsx'
+import CreateUser from './routes/CreateUser.tsx'
 
 const router = createBrowserRouter([
   {
@@ -15,6 +17,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/create-user",
+        element: <CreateUser />
       }
      ]
   }
