@@ -8,6 +8,7 @@ import React from 'react'
 import Home from './routes/Home.tsx'
 import Login from './routes/Login.tsx'
 import CreateUser from './routes/CreateUser.tsx'
+import UserListComponent from './components/UserListComponen.tsx'
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/create-user",
-        element: <CreateUser />
+        element: <CreateUser />,
+      },
+      {
+        path: "/users/list-all",
+        element: <UserListComponent/>,
       }
      ]
   }

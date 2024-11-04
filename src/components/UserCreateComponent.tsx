@@ -25,11 +25,10 @@ const UserCreateComponent: React.FC = () => {
   // Handle form submission
   const handleCreateUser = async () => {
     setLoading(true);
-    setErrorMessage(null);  // Reset any previous error messages
+    setErrorMessage(null); 
 
     try {
       const client = await SwaggerClient({ url: '../../swagger.json' });
-
       const response = await client.apis.user.post_users({
         body: {
           name: form.name,
