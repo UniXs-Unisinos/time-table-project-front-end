@@ -1,6 +1,7 @@
 //import UserProps from "../types/user";
 import React from "react";
 import LoginComponent from "../components/LoginComponent";
+import LogoutButton from "../components/LogoutButtonComponent";
 //import { useState } from "react";
 
 /*
@@ -10,9 +11,10 @@ const [user, setUser] = useState<UserProps | null>(null);
     const data = await res.json();
     console.log(data);*/ 
 const Home = () =>{
-    return <div>
+    return (<div>
         <LoginComponent />
-    </div>
+        <LogoutButton />
+    </div>)
 };
 
 export default Home
