@@ -4,17 +4,16 @@ import React, { useState } from 'react';
 import SwaggerClient from 'swagger-client';
 
 interface ProfessorForm {
+    hoursToAllocate: number;
     name: string;
-    email: string;
-    subject: string;
   }
   
   const ProfessorCreateComponent: React.FC = () => {
-    const [form, setForm] = useState<ProfessorForm>({ name: '', email: '', subject: '' });
+    const [form, setForm] = useState<ProfessorForm>({ hoursToAllocate: 0, name: ''});
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-  
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
       setForm((prevForm) => ({ ...prevForm, [name]: value }));
@@ -31,9 +30,8 @@ interface ProfessorForm {
   
         const response = await client.apis.professor.post_professors({
           body: {
+            hoursToAllocate: form.hoursToAllocate,
             name: form.name,
-            email: form.email,
-            subject: form.subject,
           },
         });
   
@@ -52,7 +50,16 @@ interface ProfessorForm {
         <h2>Create New Professor</h2>
   
         <div>
-          <label>Name:</label>
+            <label>Available Hours: </label>
+            <input
+            type="number"
+            value={form.hoursToAllocate}
+            onChange={handleChange}
+            required
+            />
+        </div>
+        <div>
+          <label>Name: </label>
           <input
             type="text"
             name="name"
@@ -62,31 +69,7 @@ interface ProfessorForm {
             required
           />
         </div>
-  
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="Enter professor's email"
-            required
-          />
-        </div>
-
-        <div>
-          <label>Subject:</label>
-          <input
-            type="text"
-            name="subject"
-            value={form.subject}
-            onChange={handleChange}
-            placeholder="Enter subject taught by professor"
-            required
-          />
-        </div>
-  
+        
         <div>
           <button onClick={handleCreateProfessor} disabled={loading}>
             {loading ? 'Creating Professor...' : 'Create Professor'}
