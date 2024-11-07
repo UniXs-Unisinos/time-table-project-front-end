@@ -10,6 +10,7 @@ import Login from './routes/Login.tsx'
 import CreateUser from './routes/CreateUser.tsx'
 import CreateProfessor from './routes/CreateProfessor.tsx'
 import CreateCourse from './routes/CreateCourse.tsx'
+import CreateSemester from './routes/CreateSemester.tsx'
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/create-course",
         element: <CreateCourse/>,
+      },
+      {
+        path:"/create-semester",
+        element: <CreateSemester/>,
       },
      ]
   }
