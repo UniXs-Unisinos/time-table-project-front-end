@@ -9,6 +9,7 @@ import Home from './routes/Home.tsx'
 import Login from './routes/Login.tsx'
 import CreateUser from './routes/CreateUser.tsx'
 import CreateProfessor from './routes/CreateProfessor.tsx'
+import CreateCourse from './routes/CreateCourse.tsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/create-professor",
         element: <CreateProfessor/>,
+      },
+      {
+        path: "/create-course",
+        element: <CreateCourse/>,
       },
      ]
   }
