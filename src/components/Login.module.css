@@ -1,0 +1,31 @@
+.login{
+    background-color: #393953;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.login p {
+    color: #9da5d1;
+}
+
+.login_container{
+    display: flex;
+}
+
+.login_container input,
+.login_container button{
+    padding: 0.2rem;
+    border-radius: 3px;
+    border: none;
+    color: #000000
+}
+
+.login_container button{
+    cursor: pointer;
+}
