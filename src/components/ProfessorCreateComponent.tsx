@@ -10,7 +10,7 @@ interface ProfessorForm {
   }
   
   const AvailabilityCreateComponent: React.FC = () => {
-    const [form, setForm] = useState<ProfessorForm>({ name: '', email: '', subject: '' });
+    const [form, setForm] = useState<ProfessorForm>({ hoursToAllocate: 0, name: '' });
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
