@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 import SwaggerClient from 'swagger-client';
+import css from './CourseCreate.module.css';
 
 interface CourseForm {
     location: string;
@@ -48,48 +49,48 @@ const CourseCreateComponent: React.FC = () => {
     };
 
     return (
-        <div>
-            <h2>Create New Course</h2>
+        <div className={css.course}>
+            <h2></h2>
             
-            <div>
-            <label>Location: </label>
+            <div className={css.course_container}>
+            <label> </label>
             <input
             type="text"
             name="location"
             value={form.location}
             onChange={handleChange}
-            placeholder="Enter location"
+            placeholder="       Localização do Curso"
             required
             />
         </div>
 
-            <div>
-            <label>Modality: </label>
+            <div className={css.course_container}>
+            <label></label>
             <input
             type="text"
             name="modality"
             value={form.modality}
             onChange={handleChange}
-            placeholder="Enter course modality"
+            placeholder="       Modalidade do Curso"
             required
             />
         </div>
 
-            <div>
-            <label>Name: </label>
+            <div className={css.course_container}>
+            <label> </label>
             <input
             type="text"
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Enter course name"
+            placeholder="       Nome do Curso"
             required
             />
         </div>
 
-        <div>
+        <div className={css.course_container}>
             <button onClick={handleCreateCourse} disabled={loading}>
-            {loading ? 'Creating Course...' : 'Create Course'}
+            {loading ? 'Creating Course...' : 'Criar Curso'}
             </button>
         </div>
 

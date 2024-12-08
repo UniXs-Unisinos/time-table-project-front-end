@@ -1,4 +1,4 @@
-.user{
+.parametrization{
     background-color: #21409A;
     padding: 2rem;
     border-radius: 20px;
@@ -9,20 +9,17 @@
     gap: 2.0rem;
     margin-bottom: 1.5rem;
     width: 500px;
-    height: 400px;
+    height: 550px;
     flex-shrink: 0;
 }
 
-.user p {
-    color: #9da5d1;
-}
 
-.user_container{
+.parametrization_container{
     display: flex;
 }
 
-.user_container input,
-.user_container button{
+.parametrization_container input,
+.parametrization_container button{
     width: 349.4px;
     height: 53.213px;
     flex-shrink: 0;
@@ -32,8 +29,9 @@
     border:none;
 }
 
-.user_container button{
-    border-radius: 10.04px;
-    background: rgba(207, 194, 225, 0.50);
+.parametrization_container button{
     cursor: pointer;
+    width: 226px;
+    height: 53px;
+    background:rgba(207, 194, 225, 0.50);
 }

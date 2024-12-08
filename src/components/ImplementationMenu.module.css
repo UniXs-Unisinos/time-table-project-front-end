@@ -1,4 +1,4 @@
-.user{
+.menu{
     background-color: #21409A;
     padding: 2rem;
     border-radius: 20px;
@@ -7,33 +7,21 @@
     justify-content: center;
     align-items: center;
     gap: 2.0rem;
-    margin-bottom: 1.5rem;
     width: 500px;
-    height: 400px;
+    height: 450px;
     flex-shrink: 0;
 }
-
-.user p {
-    color: #9da5d1;
+.menu_container{
+display: flex;
 }
 
-.user_container{
-    display: flex;
-}
-
-.user_container input,
-.user_container button{
-    width: 349.4px;
-    height: 53.213px;
+.menu_container button{
     flex-shrink: 0;
-    color: #000000;
     border-radius: 10.04px;
     background: #D9D9D9;
     border:none;
-}
-
-.user_container button{
-    border-radius: 10.04px;
-    background: rgba(207, 194, 225, 0.50);
     cursor: pointer;
+    width: 349.4px;
+    height: 53px;
+    background:rgba(207, 194, 225, 0.50);
 }

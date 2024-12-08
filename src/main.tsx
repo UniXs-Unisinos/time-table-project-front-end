@@ -11,6 +11,11 @@ import CreateUser from './routes/CreateUser.tsx'
 import CreateProfessor from './routes/CreateProfessor.tsx'
 import CreateCourse from './routes/CreateCourse.tsx'
 import CreateSemester from './routes/CreateSemester.tsx'
+import ForgotPassword from './routes/ForgotPassword.tsx'
+import CreateDiscipline from './routes/CreateDiscipline.tsx'
+import CreateAvailability from './routes/CreateAvailability.tsx'
+import ImplementationMenu from './routes/ImplementationMenu.tsx'
+import CreateParametrization from './routes/CreateParametrization.tsx'
 
 const router = createBrowserRouter([
   {
@@ -26,21 +31,41 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/create-user",
+        path: "/users",
         element: <CreateUser />,
       },
       {
-        path: "/create-professor",
+        path: "/professors",
         element: <CreateProfessor/>,
       },
       {
-        path: "/create-course",
+        path: "/courses",
         element: <CreateCourse/>,
       },
       {
-        path:"/create-semester",
+        path:"/semesters",
         element: <CreateSemester/>,
       },
+      {
+        path:"/forgotpassword",
+        element: <ForgotPassword/>
+      },
+      {
+        path:"/menu",
+        element: <ImplementationMenu/>
+      },
+      {
+        path:"/disciplines",
+        element:<CreateDiscipline/>
+      },
+      {
+        path:"/availabilities",
+        element:<CreateAvailability/>
+      },
+      {
+        path:"/parametrizations",
+        element:<CreateParametrization/>
+      }
      ]
   }
 ])

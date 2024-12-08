@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 import SwaggerClient from 'swagger-client';
-import css from './User.module.css';
+import css from './DisciplineCreate.module.css';
 
 interface UserForm {
+  course_id: number;
+  credits: number;
   name: string;
-  email: string;
-  password: string;
 }
 
-const UserCreateComponent: React.FC = () => {
-  const [form, setForm] = useState<UserForm>({ name: '', email: '', password: '' });
+const DisciplineCreateComponent: React.FC = () => {
+  const [form, setForm] = useState<UserForm>({ course_id: 0, credits: 0, name: '' });
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,74 +23,74 @@ const UserCreateComponent: React.FC = () => {
   };
 
   // Handle form submission
-  const handleCreateUser = async () => {
+  const handleCreateDiscipline = async () => {
     setLoading(true);
     setErrorMessage(null);  // Reset any previous error messages
 
     try {
       const client = await SwaggerClient({ url: 'http://localhost:8080/' });
 
-      const response = await client.apis.user.post_users({
+      const response = await client.apis.discipline.post_disciplines({
         body: {
+          course_id: form.course_id,
+          credits: form.credits,
           name: form.name,
-          email: form.email,
-          password: form.password,
         },
       });
 
-      setSuccessMessage('User created successfully!');
-      console.log('User created:', response.data);
+      setSuccessMessage('Discipline created successfully!');
+      console.log('Discipline created:', response.data);
 
     } catch (error) {
-      console.error('User creation failed:', error);
-      setErrorMessage('Error creating user. Please try again.');
+      console.error('Discipline creation failed:', error);
+      setErrorMessage('Error creating discipline. Please try again.');
     } finally {
       setLoading(false);
     }
   };
   return (
-    <div className={css.user}>
+    <div className={css.discipline}>
       <h2></h2>
 
-      <div className={css.user_container}>
+      <div className={css.discipline_container}>
+        <label></label>
+        <input
+          type="number"
+          name="course_id"
+          value={form.course_id}
+          onChange={handleChange}
+          placeholder="   Insira o Id da disciplina"
+          required
+        />
+      </div>
+
+      <div className={css.discipline_container}>
+        <label></label>
+        <input
+          type="number"
+          name="credits"
+          value={form.credits}
+          onChange={handleChange}
+          placeholder="   Insira a quantidade de Créditos"
+          required
+        />
+      </div>
+
+      <div className={css.discipline_container}>
         <label></label>
         <input
           type="text"
           name="name"
           value={form.name}
           onChange={handleChange}
-          placeholder="   Digite seu nome complete"
+          placeholder="   Digite o Nome da Disciplina "
           required
         />
       </div>
 
-      <div className={css.user_container}>
-        <label></label>
-        <input
-          type="email"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          placeholder="   Digite seu email"
-          required
-        />
-      </div>
-
-      <div className={css.user_container}>
-        <label></label>
-        <input
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="   Digite sua senha "
-          required
-        />
-      </div>
-
-      <div className={css.user_container}>
-        <button onClick={handleCreateUser} disabled={loading}>
-          {loading ? 'Creating User...' : 'Criar Usuario'}
+      <div className={css.discipline_container}>
+        <button onClick={handleCreateDiscipline} disabled={loading}>
+          {loading ? 'Creating User...' : 'Criar Disciplina'}
         </button>
       </div>
       {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
@@ -99,4 +99,4 @@ const UserCreateComponent: React.FC = () => {
   );
 };
 
-export default UserCreateComponent;
+export default DisciplineCreateComponent;

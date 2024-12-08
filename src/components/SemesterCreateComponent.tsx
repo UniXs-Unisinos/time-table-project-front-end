@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 import SwaggerClient from 'swagger-client';
+import css from './SemesterCreate.module.css'
 
 interface SemesterForm {
   semester: string;
@@ -44,24 +45,24 @@ const SemesterCreateComponent: React.FC = () => {
   };
 
   return (
-    <div>
-      <h2>Create New Semester</h2>
+    <div className={css.semester}>
+      <h2></h2>
 
-      <div>
-        <label>Semester: </label>
+      <div className={css.semester_container}>
+        <label></label>
         <input
           type="text"
           name="semester"
           value={form.semester}
           onChange={handleChange}
-          placeholder="Enter semester"
+          placeholder="   Digite o Semestre"
           required
         />
       </div>
 
-      <div>
+      <div className={css.semester_container}>
         <button onClick={handleCreateSemester} disabled={loading}>
-          {loading ? 'Creating Semester...' : 'Create Semester'}
+          {loading ? 'Creating Semester...' : 'Criar Semestre'}
         </button>
       </div>
 

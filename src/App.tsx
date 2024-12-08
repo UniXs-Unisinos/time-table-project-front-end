@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-
+import logo from './images/vertical-logo-unisinos-2024-transparente.png';
 import css from './App.module.css';
 
 function App() {
@@ -7,9 +7,16 @@ function App() {
 
   return (
     <div className={css.app}>
-      <h1>UniXs</h1>
-      <Outlet /> 
+      <div style={{display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      }}
+      >
+      <img src={logo} alt="Unisinos"style={{width: '45%', height: '45%'}} />
+      </div>
+      <Outlet/>
     </div>
+    
   );
 }
 

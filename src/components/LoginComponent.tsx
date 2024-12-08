@@ -26,7 +26,7 @@ const LoginComponent: React.FC = () => {
     setErrorMessage(null); 
 
     try {
-      const client = await SwaggerClient({ url: '../../swagger.json' });
+      const client = await SwaggerClient({ url: 'http://localhost:8080/' });
 
       // Call the login API with the form data
       const response = await client.apis.auth.auth_login({
@@ -54,28 +54,28 @@ const LoginComponent: React.FC = () => {
 
   return (
     <div className={css.login}>
-      <h2>Login</h2>
+      <h2></h2>
 
       <div className={css.login_container}>
-        <label>Email:</label>
+        <label></label>
         <input
           type="email"
           name="email"
           value={form.email}
           onChange={handleChange}
-          placeholder="Digite seu email"
+          placeholder="   Digite seu email"
           required
         />
       </div>
 
       <div className={css.login_container}>
-        <label>Password:</label>
+        <label></label>
         <input
           type="password"
           name="password"
           value={form.password}
           onChange={handleChange}
-          placeholder="Digite sua senha"
+          placeholder="   Digite sua senha"
           required
         />
       </div>
@@ -85,10 +85,15 @@ const LoginComponent: React.FC = () => {
           {loading ? 'Logging in...' : 'Entrar'}
         </button>
       </div>
+      
+      <div className={css.login_esqueceuSenha}>
+        <a href="/forgotpassword">Esqueceu sua senha?</a>
+      </div>
 
       {/* Error Message */}
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
     </div>
+    
   );
 };
 

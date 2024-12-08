@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
 import SwaggerClient from 'swagger-client';
+import css from './ProfessorCreate.module.css'
 
 interface ProfessorForm {
+    hoursToAllocate: number;
     name: string;
-    email: string;
-    subject: string;
   }
   
-  const ProfessorCreateComponent: React.FC = () => {
+  const AvailabilityCreateComponent: React.FC = () => {
     const [form, setForm] = useState<ProfessorForm>({ name: '', email: '', subject: '' });
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -31,9 +31,8 @@ interface ProfessorForm {
   
         const response = await client.apis.professor.post_professors({
           body: {
+            hourstoallocate: form.hoursToAllocate,
             name: form.name,
-            email: form.email,
-            subject: form.subject,
           },
         });
   
@@ -48,48 +47,36 @@ interface ProfessorForm {
     };
   
     return (
-      <div>
-        <h2>Create New Professor</h2>
+      <div className={css.professor}>
+        <h2></h2>
   
-        <div>
-          <label>Name:</label>
+        <div className={css.professor_container}>
+          <label></label>
+          <input
+            type="text"
+            name="hourstoallocate"
+            value={form.hoursToAllocate}
+            onChange={handleChange}
+            placeholder="   Horas a serem alocadas"
+            required
+          />
+        </div>
+
+        <div className={css.professor_container}>
+          <label></label>
           <input
             type="text"
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Enter professor's name"
+            placeholder="   Nome do professor"
             required
           />
         </div>
   
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="Enter professor's email"
-            required
-          />
-        </div>
-
-        <div>
-          <label>Subject:</label>
-          <input
-            type="text"
-            name="subject"
-            value={form.subject}
-            onChange={handleChange}
-            placeholder="Enter subject taught by professor"
-            required
-          />
-        </div>
-  
-        <div>
+        <div className={css.professor_container}>
           <button onClick={handleCreateProfessor} disabled={loading}>
-            {loading ? 'Creating Professor...' : 'Create Professor'}
+            {loading ? 'Creating Professor...' : 'Criar Professor'}
           </button>
         </div>
   
@@ -99,4 +86,4 @@ interface ProfessorForm {
     );
   };
   
-  export default ProfessorCreateComponent;
+  export default AvailabilityCreateComponent;
