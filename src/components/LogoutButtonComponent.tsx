@@ -1,10 +1,10 @@
 import React from  'react';
-import LoginButton from './LoginButtonComponent.module.css'
+import classes from './LogoutButtonComponent.module.css';
 interface LogoutButtonProps {
     onLogout : () => void; // função
 }
 
-const  LogoutButton: React.FC<LogoutButtonProps> = ({onLogout}) =>{
+const  LogoutButtonComponent: React.FC<LogoutButtonProps> = ({onLogout}) =>{
     const handleLogout = async () => {
         try {
             const response = await fetch('/api/logout',{
@@ -26,12 +26,10 @@ const  LogoutButton: React.FC<LogoutButtonProps> = ({onLogout}) =>{
     };
 
     return (
-        <div classname={classes.LoginButton}>  
-            <button onClick={handleLogout}>
-                Sair
-            </button>
-        <div/>
-    );
+        <div className={classes.logout}>  
+            <button onClick={handleLogout}>Sair</button>
+        </div>
+    )
 };
 
-export default LogoutButton;
+export default LogoutButtonComponent; 

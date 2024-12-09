@@ -1,0 +1,21 @@
+.logout {
+    text-align: center;
+}
+
+.logout button{
+    border-radius: 10.04px;
+    background: #FE4900CC;
+    width: 149.4px;
+    height: 53.213px;
+    flex-shrink: 0;
+    font-family: Inter;
+    font-size: 40.161px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #fff;
+}
+
+.logout button:hover{
+    background: #FA070780;
+}
