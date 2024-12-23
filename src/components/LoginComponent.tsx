@@ -43,7 +43,7 @@ const LoginComponent: React.FC = () => {
       localStorage.setItem('authToken', authToken);
 
       // Redirecting after login 
-      window.location.href = '/home';  // Test using Home
+      window.location.href = '/';  // Test using Home
     } catch (error) {
       console.error('Login failed:', error);
       setErrorMessage('Invalid email or password. Please try again.');
